@@ -1,0 +1,39 @@
+{% extends "skincare/about.html" %}
+{%load static%}
+{% block content %}
+
+<! ----------- blog heading ---------- >
+<section class="blog-content">
+  <div class="blog-heading">
+    <div class="center">
+      <b> Your Skincare Fairymother </b>
+      <h3> Here to educate you about skincare tips
+        and best practices for healthy skin
+      </h3>
+    </div>
+  </div>
+
+  <div class="blog-page">
+    {% for blog in blogs %}
+    <div class="col-3">
+      {% if blog.image.url %}
+      <a href="{{ blog.get_absolute_url }}">
+        <img src="{{ blog.image.url }}" alt="" width=250 height=250>
+      </a>
+      <br>
+      <br>
+      {% else %}
+      <p>image does not exist </p>
+      {% endif %}
+      <h3> {{ blog.name }} </h3>
+      <h4> {{ blog.description }}</h4>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+
+
+
+
+{% endblock %}

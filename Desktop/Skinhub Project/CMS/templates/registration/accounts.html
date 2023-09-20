@@ -1,0 +1,42 @@
+{% extends "skincare/about.html" %}
+{%load static%}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="account-page">
+   <div class="container">
+       <div class="row">
+           <div class="col-2">
+              <img src="{% static "image/Skincare.JPG"%}" width="500px" alt="">
+           </div>
+           <div class="col-2">
+               <div class="form-container">
+                   <div class="form-btn">
+                       <span  onclick="Login()"> Registration </span>
+                       <hr id="Indicator" width="100px">
+                   </div>
+
+                   <form id="RegForm" action="" method="POST" >
+                       {% csrf_token %}
+                       {% for field in form %}
+                       {{field.label}}
+                       {{field}}
+                       <br>
+                       <br>
+                       {% endfor %}
+                       {{form.errors}}
+                      <div class="sign-btn">
+                      <button>Sign up </button>
+                      </div>
+                      <div>
+                      <small> Already have an account <a href=" 'registration/login.html' "> Sign in</a> </small>
+                      </div>
+                   </form>
+
+               </div>
+           </div>
+       </div>
+   </div>
+</div>
+
+
+{% endblock %}
